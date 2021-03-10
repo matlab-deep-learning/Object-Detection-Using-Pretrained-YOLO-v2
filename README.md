@@ -31,12 +31,16 @@ Download or clone this repository to your machine and open it in MATLAB.
 ### Download the pretrained network
 Use the below helper to download the pretrained network. Specify “darknet19-voc" or “darknet19-coco" or “tinyYOLOv2-coco” to download the required pretrained network.  
 
-`detector = helper.downloadPretrainedYOLOv2('tinyYOLOv2-coco');`
+`helper.downloadPretrainedYOLOv2('tinyYOLOv2-coco');`
 
 Detect Objects Using Pretrained YOLO v2
 ---------------------------------------
 
 ```
+% Load pretrained detector
+pretrained = load('tinyYOLOv2-coco');
+detector = pretrained.yolov2Detector;
+
 % Read test image.
 img = imread('sherlock.jpg');
 
