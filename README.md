@@ -21,7 +21,7 @@ The pretrained networks are trained to detect different object categories includ
 
 YOLO v2 is a popular single stage object detectors that performs detection and classification using CNNs. The YOLO v2 network is composed of a backbone feature extraction network and a detection head for the localization of objects in an image. For more information about YOLO v2, see [Getting Started with YOLO v2](https://www.mathworks.com/help/vision/ug/getting-started-with-yolo-v2.html). 
 
-![alt text](https://www.mathworks.com/help/vision/ug/yolo_model.png) 
+![alt text](images/yolo_model.png?raw=true) 
 
 Getting Started
 ---------------
@@ -38,7 +38,7 @@ Detect Objects Using Pretrained YOLO v2
 
 ```
 % Load pretrained detector
-pretrained = load('tinyYOLOv2-coco');
+pretrained = load('tinyYOLOv2-coco.mat');
 detector = pretrained.yolov2Detector;
 
 % Read test image.
