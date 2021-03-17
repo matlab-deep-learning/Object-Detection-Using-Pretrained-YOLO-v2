@@ -73,7 +73,7 @@ You can choose the ideal YOLO v2 object detector for your application based on t
 Train Custom YOLO v2 Detector Using Transfer Learning
 ------------------------------------------------------------
 
-Transfer learning enables you to adapt a pretrained YOLO v2 object detector to your dataset. Create a custom YOLO v2 network for transfer learning with a new set of classes using the configureYOLOv2TransferLearn.mlx example. For more information about training a YOLO v2 object detector, see [Object Detection using YOLO v2 Deep Learning Example](https://www.mathworks.com/help/vision/ug/train-an-object-detector-using-you-only-look-once.html).
+Transfer learning enables you to adapt a pretrained YOLO v2 object detector to your dataset. Create a custom YOLO v2 network for transfer learning with a new set of classes using the configureYOLOv2TransferLearn.m script. For more information about training a YOLO v2 object detector, see [Object Detection using YOLO v2 Deep Learning Example](https://www.mathworks.com/help/vision/ug/train-an-object-detector-using-you-only-look-once.html).
 
 Code Generation
 ---------------
