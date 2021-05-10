@@ -19,10 +19,6 @@ This repository implements three variants of the YOLO v2 object detector:
 
 The pretrained networks are trained to detect different object categories including person, car, traffic light, etc. These networks are trained using either COCO 2017 [2] or PASCAL VOC [3] datasets which have 80 and 20 different object categories, respectively.
 
-YOLO v2 is a popular single stage object detectors that performs detection and classification using CNNs. The YOLO v2 network is composed of a backbone feature extraction network and a detection head for the localization of objects in an image. For more information about YOLO v2, see [Getting Started with YOLO v2](https://www.mathworks.com/help/vision/ug/getting-started-with-yolo-v2.html). 
-
-![alt text](images/yolo_model.png?raw=true) 
-
 Getting Started
 ---------------
 
@@ -79,6 +75,13 @@ Code Generation
 ---------------
 
 Code generation enables you to generate code and deploy YOLO v2 on multiple embedded platforms. For more information about generating CUDA® code using the YOLO v2 object detector see [Code Generation for Object Detection by Using YOLO v2](https://www.mathworks.com/help//deeplearning/ug/code-generation-for-object-detection-using-yolo-v2.html)
+
+YOLO v2 Algorithm Details
+-------------------------
+
+YOLO v2 is a popular single stage object detectors that performs detection and classification using CNNs. The YOLO v2 network is composed of a backbone feature extraction network and a detection head for the localization of objects in an image. For more information about YOLO v2, see [Getting Started with YOLO v2](https://www.mathworks.com/help/vision/ug/getting-started-with-yolo-v2.html). 
+
+![alt text](images/yolo_model.png?raw=true) 
 
 References
 -----------
