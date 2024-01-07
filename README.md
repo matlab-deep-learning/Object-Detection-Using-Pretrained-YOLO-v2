@@ -2,40 +2,31 @@
 
 This repository implements pretrained YOLO v2 [1] object detectors in MATLAB. [![Open in MATLAB Online](https://www.mathworks.com/images/responsive/global/open-in-matlab-online.svg)](https://matlab.mathworks.com/open/github/v1?repo=matlab-deep-learning/Object-Detection-Using-Pretrained-YOLO-v2)
 
-Requirements
-------------  
+**Creator**: MathWorks Development
 
-- MATLAB R2020a or later
-- Deep Learning Toolbox
-- Computer Vision Toolbox
 
-Overview
---------
+## Requirements  
+- MATLAB® R2020a or later
+- Deep Learning Toolbox™
+- Computer Vision Toolbox™
+- Computer Vision Toolbox™ Model for YOLO v2 Object Detection
 
-This repository implements three variants of the YOLO v2 object detector: 
-- darknet19-voc: Darknet-19 base network trained on VOC dataset. 
-- darknet19-coco: Darknet-19 base network trained on COCO dataset.
-- tinyYOLOv2-coco: Smaller base network trained on COCO dataset. 
+Note: Previous MATLAB® release users can use [this](https://github.com/matlab-deep-learning/Object-Detection-Using-Pretrained-YOLO-v2/tree/previous) branch to download the pretrained models.
 
-The pretrained networks are trained to detect different object categories including person, car, traffic light, etc. These networks are trained using either COCO 2017 [2] or PASCAL VOC [3] datasets which have 80 and 20 different object categories, respectively.
 
-Getting Started
----------------
+## Getting Started
+[Getting Started with YOLO v2](https://in.mathworks.com/help/vision/ug/getting-started-with-yolo-v2.html)
 
-Download or clone this repository to your machine and open it in MATLAB.
 
-### Download the pretrained network
-Use the below helper to download the pretrained network. Specify “darknet19-voc" or “darknet19-coco" or “tinyYOLOv2-coco” to download the required pretrained network.  
+### Detect Objects Using Pretrained YOLO v2
+Use to code below to perform detection on an example image using the pretrained model.
 
-`helper.downloadPretrainedYOLOv2('tinyYOLOv2-coco');`
-
-Detect Objects Using Pretrained YOLO v2
----------------------------------------
+Note: This functionality requires Deep Learning Toolbox™ and the Computer Vision Toolbox™ for YOLO v2 Object Detection. You can install the Computer Vision Toolbox for YOLO v2 Object Detection from Add-On Explorer. For more information about installing add-ons, see [Get and Manage Add-Ons](https://in.mathworks.com/help/matlab/matlab_env/get-add-ons.html).
 
 ```
 % Load pretrained detector
-pretrained = load('tinyYOLOv2-coco.mat');
-detector = pretrained.yolov2Detector;
+modelName = 'tiny-yolov2-coco';
+detector = yolov2ObjectDetector(name);
 
 % Read test image.
 img = imread('sherlock.jpg');
@@ -49,43 +40,33 @@ figure, imshow(img)
 ```
 ![alt text](images/results.jpg?raw=true)
 
-Choosing a Pretrained YOLO v2 Object Detector
----------------------------------------------
-
+### Choosing a Pretrained YOLO v2 Object Detector
 You can choose the ideal YOLO v2 object detector for your application based on the below table:
 
 | Model | mAP | Size (MB) | Classes | Speed in Frames Per Second (FPS) |
 | ------ | ------ |  ------ | ------ | ------ |
-| Darknet19-VOC | 75.4 | 180 | [voc class names](+helper/pascal-voc-classes.txt) | 19 |
 | Darknet19-COCO | 28.7 | 181 | [coco class names](+helper/coco-classes.txt) | 17.8 |
 | Tiny-YOLO_v2-COCO | 10.5 | 40 | [coco class names](+helper/coco-classes.txt) | 32 |
 
 - Performance (in FPS) is measured on a TITAN-XP machine using:
-    - 416x416 image for Darknet19-VOC.
     - 608x608 image for Darknet19-COCO.
     - 416x416 image for Tiny-YOLO_v2-COCO.
 - mAP for models trained on the COCO dataset is computed as average over IoU of .5:.95.
 
-Train Custom YOLO v2 Detector Using Transfer Learning
-------------------------------------------------------------
+### Train Custom YOLO v2 Detector Using Transfer Learning
+To train a YOLO v2 object detection network on a labeled data set, use the [trainYOLOv2ObjectDetector](https://in.mathworks.com/help/vision/ref/trainyolov2objectdetector.html) function. You must specify the class names for the data set you use to train the network. Then, train an untrained or pretrained network by using the [trainYOLOv2ObjectDetector](https://in.mathworks.com/help/vision/ref/trainyolov2objectdetector.html) function. The training function returns the trained network as a [yolov2ObjectDetector](https://in.mathworks.com/help/vision/ref/yolov2objectdetector.html) object.
 
-Transfer learning enables you to adapt a pretrained YOLO v2 object detector to your dataset. Create a custom YOLO v2 network for transfer learning with a new set of classes using the configureYOLOv2TransferLearn.m script. For more information about training a YOLO v2 object detector, see [Object Detection using YOLO v2 Deep Learning Example](https://www.mathworks.com/help/vision/ug/train-an-object-detector-using-you-only-look-once.html).
+For more information about training a YOLO v2 object detector, see [Object Detection using YOLO v2 Deep Learning Example](https://www.mathworks.com/help/vision/ug/train-an-object-detector-using-you-only-look-once.html).
 
-Code Generation
----------------
-
+## Code Generation
 Code generation enables you to generate code and deploy YOLO v2 on multiple embedded platforms. For more information about generating CUDA® code using the YOLO v2 object detector see [Code Generation for Object Detection by Using YOLO v2](https://www.mathworks.com/help//deeplearning/ug/code-generation-for-object-detection-using-yolo-v2.html)
 
-YOLO v2 Algorithm Details
--------------------------
-
+## YOLO v2 Algorithm Details
 YOLO v2 is a popular single stage object detectors that performs detection and classification using CNNs. The YOLO v2 network is composed of a backbone feature extraction network and a detection head for the localization of objects in an image. For more information about YOLO v2, see [Getting Started with YOLO v2](https://www.mathworks.com/help/vision/ug/getting-started-with-yolo-v2.html). 
 
 ![alt text](images/yolo_model.png?raw=true) 
 
-References
------------
-
+## References
 [1] Redmon, Joseph, and Ali Farhadi. "YOLO9000: better, faster, stronger." Proceedings of the IEEE conference on computer vision and pattern recognition. 2017.
 
 [2] Lin, T., et al. "Microsoft COCO: Common objects in context. arXiv 2014." arXiv preprint arXiv:1405.0312 (2014).
@@ -93,4 +74,4 @@ References
 [3] The PASCAL Visual Object Classes Challenge: A Retrospective Everingham, M., Eslami, S. M. A., Van Gool, L., Williams, C. K. I., Winn, J. and Zisserman, A. International Journal of Computer Vision, 111(1), 98-136, 2015.
 
 
-Copyright 2021 The MathWorks, Inc.
+Copyright 2021 - 2024 The MathWorks, Inc.
